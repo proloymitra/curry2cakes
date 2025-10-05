@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+  
+  /* Curry2Cakes Brand Colors */
+  --c2c-primary: #8B4513; /* Brown from logo */
+  --c2c-secondary: #D2691E; /* Chocolate from logo */
+  --c2c-accent: #FF6347; /* Tomato red for spice */
+  --c2c-light: #FFFFFF; /* White background */
+  --c2c-dark: #2C2C2C; /* Dark text */
+  --c2c-text: #333333;
+  --c2c-gray-light: #F5F5F7; /* Apple-style light gray */
+  --c2c-gray: #86868B; /* Apple-style gray */
+  
+  /* Theme colors mapped to brand */
+  --background: var(--c2c-light);
+  --foreground: var(--c2c-text);
+  --card: var(--c2c-light);
+  --card-foreground: var(--c2c-text);
+  --popover: var(--c2c-light);
+  --popover-foreground: var(--c2c-text);
+  --primary: var(--c2c-primary);
+  --primary-foreground: var(--c2c-light);
+  --secondary: var(--c2c-gray-light);
+  --secondary-foreground: var(--c2c-text);
+  --muted: var(--c2c-gray-light);
+  --muted-foreground: var(--c2c-gray);
+  --accent: var(--c2c-accent);
+  --accent-foreground: var(--c2c-light);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #E5E5E7;
+  --input: #E5E5E7;
+  --ring: var(--c2c-primary);
+  --chart-1: var(--c2c-primary);
+  --chart-2: var(--c2c-secondary);
+  --chart-3: var(--c2c-accent);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: var(--c2c-gray-light);
+  --sidebar-foreground: var(--c2c-text);
+  --sidebar-primary: var(--c2c-primary);
+  --sidebar-primary-foreground: var(--c2c-light);
+  --sidebar-accent: var(--c2c-gray-light);
+  --sidebar-accent-foreground: var(--c2c-text);
+  --sidebar-border: #E5E5E7;
+  --sidebar-ring: var(--c2c-primary);
+}
+
+.dark {
+  --background: var(--c2c-dark);
+  --foreground: var(--c2c-light);
+  --card: #3A3A3A;
+  --card-foreground: var(--c2c-light);
+  --popover: #3A3A3A;
+  --popover-foreground: var(--c2c-light);
+  --primary: var(--c2c-secondary);
+  --primary-foreground: var(--c2c-light);
+  --secondary: #4A4A4A;
+  --secondary-foreground: var(--c2c-light);
+  --muted: #4A4A4A;
+  --muted-foreground: var(--c2c-gray);
+  --accent: var(--c2c-accent);
+  --accent-foreground: var(--c2c-light);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: var(--c2c-secondary);
+  --chart-1: var(--c2c-secondary);
+  --chart-2: var(--c2c-accent);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: #3A3A3A;
+  --sidebar-foreground: var(--c2c-light);
+  --sidebar-primary: var(--c2c-secondary);
+  --sidebar-primary-foreground: var(--c2c-light);
+  --sidebar-accent: #4A4A4A;
+  --sidebar-accent-foreground: var(--c2c-light);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--c2c-secondary);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  html, body, #root {
+    height: 100%;
+  }
+}
+
+/* Animation for sections */
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
