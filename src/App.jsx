@@ -326,7 +326,7 @@ const Header = ({ user, isAuthenticated, onLogout }) => {
         <div className="flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <img 
-              src="/curry2cakes/logo.png" 
+              src="/curry2cakes/public/logo.png" 
               alt="Curry2Cakes - From Spicy to Sweet" 
               className="h-12 w-auto"
             />
